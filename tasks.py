@@ -11,7 +11,7 @@ def message_handler(activity):
 
         # Be snarky when no message is sent; otherwise, S.C.I.E.N.C.E.
         if len(message) == 0:
-            response = 'Has anyone really been far even as decided to use ' +
+            response = 'Has anyone really been far even as decided to use ' \
                 'even go want to do look more like?'
         else:
             response = sciencify(message)
