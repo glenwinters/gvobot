@@ -3,5 +3,5 @@ from tasks import *
 import os
 
 bot = MsBot(port=int(os.environ['PORT']))
-bot.add_process(message_handler)
+bot.add_process(activity_handler)
 bot.run()
