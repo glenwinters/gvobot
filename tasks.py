@@ -24,4 +24,7 @@ def _message_handler(message):
         else:
             response = sciencify(message)
 
+            # The bot's name is unscienceable.
+            response = response.replace('@G.V.O.B.O.T.', '@gvobot')
+
         return response
