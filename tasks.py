@@ -4,4 +4,4 @@ from utils import sciencify
 def message_handler(activity):
     if activity['type'] == 'message':
         message = activity['text']
-        ReplyToActivity(fill=message, text=sciencify(message)).send()
+        ReplyToActivity(fill=activity, text=sciencify(message)).send()
