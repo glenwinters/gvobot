@@ -1,8 +1,7 @@
 from microsoftbotframework import ReplyToActivity
+from utils import sciencify
 
-def science(message):
-    print(message)
-    if message['type'] == 'message':
-        text = message['text']
-        scienced_text = ''.join([c.upper() + '.' for c in text])
-        ReplyToActivity(fill=message, text=scienced_text).send()
+def message_handler(activity):
+    if activity['type'] == 'message':
+        message = message['text']
+        ReplyToActivity(fill=message, text=sciencify(message)).send()
