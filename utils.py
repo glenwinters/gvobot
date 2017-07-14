@@ -19,3 +19,12 @@ def sciencify(text):
         else:
             scienced_text += c
     return scienced_text
+
+def unescape(message):
+    """Unescape escaped HTML entity characters"""
+    message = message.replace('&lt;', '<')
+    message = message.replace('&gt;', '>')
+    message = message.replace('&quot;', '\"')
+    message = message.replace('&apos;', '\'')
+    message = message.replace('&amp;', '&')
+    return message

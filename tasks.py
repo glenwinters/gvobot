@@ -1,5 +1,5 @@
 from microsoftbotframework import ReplyToActivity
-from utils import sciencify
+from utils import sciencify, unescape
 
 def activity_handler(activity):
     if activity['type'] == 'message':
@@ -16,6 +16,9 @@ def _message_handler(message):
         elif message.startswith(mention):
             # Remove the extra space added after the mention, too
             message = message[len(mention) + 1:]
+
+        # Unescape message (skype encodes &, <, >, ', and ")
+        message = unescape(message)
 
         # Be snarky when no message is sent; otherwise, S.C.I.E.N.C.E.
         if len(message) == 0:
