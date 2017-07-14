@@ -26,5 +26,8 @@ def unescape(message):
     message = message.replace('&gt;', '>')
     message = message.replace('&quot;', '\"')
     message = message.replace('&apos;', '\'')
+    # Replacing '&' needs to be done last to avoid creating new escaped chars
+    # e.g. amp unescaped last: &amp;lt; to &lt;
+    #      amp unescaped first: &amp;lt; to &lt; to <
     message = message.replace('&amp;', '&')
     return message
