@@ -9,7 +9,7 @@ def activity_handler(activity):
 
 def _message_handler(message):
         mention = '@gvobot'
-
+        print message
         # Strip mention if it's at the beginning
         if message == mention:
             message = ''
