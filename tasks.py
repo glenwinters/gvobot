@@ -1,5 +1,6 @@
 from microsoftbotframework import ReplyToActivity
 from utils import sciencify, unescape
+import random
 
 FIXED_RESPONSES = {
     'what is this?':
@@ -7,8 +8,11 @@ FIXED_RESPONSES = {
     'should i mess around?':
         'DON\'T MESS AROUND',
     '!yakisoba':
-        'https://www.youtube.com/watch?v=sLGTc3x7-38'
+        'https://www.youtube.com/watch?v=sLGTc3x7-38',
+    '!pacefog':
+        'https://www.youtube.com/watch?v=TDkhl-CgETg'
 }
+
 
 def activity_handler(activity):
     if activity['type'] == 'message':
@@ -35,6 +39,20 @@ def _message_handler(message):
                 'even go want to do look more like?'
         elif FIXED_RESPONSES.get(message.lower(), None) is not None:
             response = FIXED_RESPONSES[message.lower()]
+        elif message.startswith('!number'):
+            usage = 'Usage: !number [<start num> <end num>]'
+            args = message.split()
+            if len(args) == 1:
+                response = str(random.randint(1, 6))
+            elif len(args) == 3:
+                try:
+                    start = int(args[1])
+                    end = int(args[2])
+                    response = str(random.randint(start, end))
+                except ValueError:
+                    response = usage
+            else:
+                response = usage
         else:
             response = sciencify(message)
 
