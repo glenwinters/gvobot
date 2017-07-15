@@ -4,7 +4,7 @@ from utils import sciencify, unescape
 FIXED_RESPONSES = {
     'what is this?':
         'THIS IS GRINDIE VOLUME ONE',
-    'should I mess around?':
+    'should i mess around?':
         'DON\'T MESS AROUND',
     '!yakisoba':
         'https://www.youtube.com/watch?v=sLGTc3x7-38'
