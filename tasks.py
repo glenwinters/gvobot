@@ -10,7 +10,9 @@ FIXED_RESPONSES = {
     '!yakisoba':
         'https://www.youtube.com/watch?v=sLGTc3x7-38',
     '!pacefog':
-        'https://www.youtube.com/watch?v=TDkhl-CgETg'
+        'https://www.youtube.com/watch?v=TDkhl-CgETg',
+    '!bigwheel':
+        'https://www.youtube.com/watch?v=0TrishCMmpc'
 }
 
 
