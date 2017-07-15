@@ -38,6 +38,10 @@ def _message_handler(message):
         else:
             response = sciencify(message)
 
+            # Allow bot to do actions with /me
+            if response.startswith('/M.E. '):
+                response = response.replace('/M.E.', '/me', 1)
+
             # The bot's name is unscienceable.
             response = response.replace('@G.V.O.B.O.T.', '@gvobot')
 
