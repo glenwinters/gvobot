@@ -1,6 +1,11 @@
 from microsoftbotframework import ReplyToActivity
 from utils import sciencify, unescape
 
+FIXED_RESPONSES = {
+    'what is this?':
+        'THIS IS GRINDIE VOLUME ONE'
+}
+
 def activity_handler(activity):
     if activity['type'] == 'message':
         message = activity['text']
@@ -24,6 +29,8 @@ def _message_handler(message):
         if len(message) == 0:
             response = 'Has anyone really been far even as decided to use ' \
                 'even go want to do look more like?'
+        elif FIXED_RESPONSES.get(message.lower(), None) is not None:
+            response = FIXED_RESPONSES[message.lower()]
         else:
             response = sciencify(message)
 
