@@ -3,7 +3,9 @@ from utils import sciencify, unescape
 
 FIXED_RESPONSES = {
     'what is this?':
-        'THIS IS GRINDIE VOLUME ONE'
+        'THIS IS GRINDIE VOLUME ONE',
+    'should I mess around?':
+        'DON\'T MESS AROUND'
 }
 
 def activity_handler(activity):
