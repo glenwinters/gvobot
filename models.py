@@ -36,7 +36,7 @@ class Song(Base):
         return "<Song(name='{}', artist='{}')>".format(self.name, self.artist)
 
     def to_message(self):
-        return '{} - {}: {}'.format(self.artist, self.name, self.url)
+        return '{} - {}: {}'.format(self.artist.name, self.name, self.url)
 
 
 engine = create_engine(DATABASE_URL)
