@@ -1,6 +1,8 @@
-from microsoftbotframework import ReplyToActivity
-from utils import sciencify, unescape
 import random
+from microsoftbotframework import ReplyToActivity
+
+from music import get_random_song
+from utils import sciencify, unescape
 
 FIXED_RESPONSES = {
     'what is this?':
@@ -55,6 +57,13 @@ def _message_handler(message):
                     response = usage
             else:
                 response = usage
+        elif message.startswith('!song'):
+            args = message.split()
+            if len(args) == 1:
+                song = get_random_song()
+                response = song.to_message()
+            else:
+                response = 'Usage: !song'
         else:
             response = sciencify(message)
 
@@ -65,4 +74,5 @@ def _message_handler(message):
             # The bot's name is unscienceable.
             response = response.replace('@G.V.O.B.O.T.', '@gvobot')
 
+        print(response)
         return response
