@@ -35,6 +35,9 @@ class Song(Base):
     def __repr__(self):
         return "<Song(name='{}', artist='{}')>".format(self.name, self.artist)
 
+    def to_message(self):
+        return '{} - {}: {}'.format(song.artist, song.name, song.url)
+
 
 engine = create_engine(DATABASE_URL)
 Base.metadata.create_all(engine)
