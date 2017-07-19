@@ -3,6 +3,7 @@ from microsoftbotframework import ReplyToActivity
 
 from music import get_random_song
 from utils import sciencify, unescape
+from food2fork import get_random_recipe
 
 FIXED_RESPONSES = {
     'what is this?':
@@ -64,6 +65,13 @@ def _message_handler(message):
                 response = song.to_message()
             else:
                 response = 'Usage: !song'
+        elif message.startswith('!recipe'):
+            usage = 'Usage: !recipe'
+            args = message.split()
+            if len(args) == 1:
+                response = get_random_recipe()
+            else:
+                response = usage
         else:
             response = sciencify(message)
 
